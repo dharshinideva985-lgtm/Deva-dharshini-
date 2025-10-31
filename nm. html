@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ShopEase - Full E-commerce Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="nm.css" />
+</head>
+<body>
+
+<header>
+  <h1>ShopEase</h1>
+  <nav>
+    <button class="nav-btn" data-view="home" aria-label="Home Page">Home</button>
+    <button class="nav-btn" data-view="wishlist" aria-label="Wishlist Page">Wishlist (<span id="wishlist-count">0</span>)</button>
+    <button class="nav-btn" data-view="cart" aria-label="Cart Page">Cart (<span id="cart-count">0</span>)</button>
+    <button class="nav-btn" data-view="checkout" aria-label="Checkout Page">Checkout</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HOME / PRODUCTS VIEW -->
+  <section id="view-home" class="view active" aria-label="Products List">
+    <div class="search-bar">
+      <input type="search" id="search-input" placeholder="Search products..." aria-label="Search products" />
+      <select id="category-filter" aria-label="Filter by category">
+        <option value="">All Categories</option>
+      </select>
+      <select id="sort-select" aria-label="Sort products">
+        <option value="default">Sort by</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="rating-desc">Rating: High to Low</option>
+      </select>
+    </div>
+    <section class="products" id="products"></section>
+  </section>
+
+  <!-- WISHLIST VIEW -->
+  <section id="view-wishlist" class="view" aria-label="Wishlist">
+    <h2>Your Wishlist</h2>
+    <section class="products" id="wishlist-products"></section>
+    <p id="wishlist-empty-msg" class="empty-msg">Your wishlist is empty.</p>
+  </section>
+
+  <!-- CART VIEW -->
+  <section id="view-cart" class="view" aria-label="Shopping Cart">
+    <h2>Your Cart</h2>
+    <section id="cart-items"></section>
+
+    <div class="cart-coupon">
+      <input type="text" id="coupon-input" placeholder="Enter coupon code" aria-label="Coupon code" />
+      <button id="apply-coupon-btn">Apply Coupon</button>
+      <p id="coupon-msg" class="coupon-msg"></p>
+    </div>
+
+    <div id="cart-summary"></div>
+    <button id="go-to-checkout-btn" class="primary-btn">Proceed to Checkout</button>
+  </section>
+
+  <!-- CHECKOUT VIEW -->
+  <section id="view-checkout" class="view" aria-label="Checkout">
+    <h2>Checkout</h2>
+    <form id="checkout-form" novalidate>
+      <fieldset>
+        <legend>Customer Details</legend>
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required aria-required="true" />
+        
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required aria-required="true" />
+        
+        <label for="address">Shipping Address</label>
+        <textarea id="address" name="address" rows="3" required aria-required="true"></textarea>
+      </fieldset>
+
+      <button type="submit" class="primary-btn">Place Order</button>
+    </form>
+    <p id="order-success" class="success-msg" hidden>Thank you for your order! We will process it shortly.</p>
+    <button id="back-to-home" class="secondary-btn">Back to Home</button>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2025 ShopEase. All rights reserved.</p>
+</footer>
+
+<script src="nm.js"></script>
+</body>
+</html>
